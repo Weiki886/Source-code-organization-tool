@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>源代码整理工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-content">
+        <div class="container">
+            <h1>源代码整理工具</h1>
+            <div class="input-group">
+                <label for="folderInput">选择文件夹：</label>
+                <input type="file" id="folderInput" webkitdirectory directory multiple>
+            </div>
+            
+            <div class="file-selection">
+                <div class="file-selection-header">
+                    <h3>选择要处理的文件：</h3>
+                    <div class="file-selection-actions">
+                        <button id="selectAllBtn" class="secondary-btn">全选</button>
+                        <button id="deselectAllBtn" class="secondary-btn">取消全选</button>
+                    </div>
+                </div>
+                <div class="file-info-note">
+                    注意：本工具处理的是源代码文本文件。编译后的二进制文件（如.class、.exe等）不能作为文本处理，会被自动排除。
+                </div>
+                <div id="fileList" class="file-list"></div>
+            </div>
+            
+            <div class="input-group">
+                <label for="outputName">输出文件名：</label>
+                <input type="text" id="outputName" placeholder="请填写输出文件名">
+            </div>
+            
+            <div class="input-group">
+                <label for="outputFormat">输出格式：</label>
+                <select id="outputFormat">
+                    <option value="txt">TXT文本文件</option>
+                    <option value="docx">DOCX文档文件</option>
+                    <option value="pdf">PDF文档文件</option>
+                </select>
+            </div>
+            
+            <div class="checkbox-group">
+                <div class="checkbox">
+                    <input type="checkbox" id="removeComments" checked>
+                    <label for="removeComments">删除注释</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="removeEmptyLines" checked>
+                    <label for="removeEmptyLines">删除空行</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="showFilenames">
+                    <label for="showFilenames">显示文件名</label>
+                </div>
+            </div>
+            
+            <button id="processBtn">处理文件</button>
+            <div id="status" class="status"></div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>关于本工具</h4>
+                <p>源代码整理工具是一个纯前端应用，可以帮助您快速整理代码文件，自动删除注释和空行。</p>
+            </div>
+            <div class="footer-section">
+                <h4>使用说明</h4>
+                <p>选择文件夹 → 筛选文件 → 设置输出 → 处理文件</p>
+            </div>
+            <div class="footer-section">
+                <h4>联系我们</h4>
+                <p>如有问题或建议，请联系开发团队</p>
+                <p>邮箱 Weiki886@163.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Weiki 源代码整理工具 - 保留所有权利</p>
+        </div>
+    </footer>
+    
+    <!-- 添加必要的库 -->
+    <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
